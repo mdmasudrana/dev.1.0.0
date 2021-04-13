@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\Product;
 use App\Models\ProductVariant;
 use App\Models\ProductVariantPrice;
@@ -28,6 +28,10 @@ class ProductController extends Controller
     public function create()
     {
         $variants = Variant::all();
+        
+       
+
+
         return view('products.create', compact('variants'));
     }
 
@@ -39,7 +43,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+       DB::table('Product')->insert([
+        'title'=>$request->title,
+        'sku'=>$request->sku,
+        'description'=>$request->description
+        
+       ]
+       );
+       return view('products.create');
     }
 
 

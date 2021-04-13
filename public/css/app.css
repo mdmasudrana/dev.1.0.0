@@ -29009,3 +29009,6 @@ a.text-dark:focus {
   border-color: #5897fb;
 }
 
+.txt {
+    float: left;
+}
